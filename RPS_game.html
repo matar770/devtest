@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    //This is to generate a random computer reponse.
+    var options = ["Rock", "Paper", "Scissors"];
+    var comp_choice = Math.floor(Math.random()*options.length)
+
+    console.log(options[comp_choice]);
+
+</script>
+</head>
+<body>
+
+    <h1> Welcome to Rock, Paper, Scissors Game!</h1>
+    <form name="RPS" >      
+        <fieldset>      
+            <legend>What is Your Choice?</legend>      
+            <input type="radio" id="Rock" name="RPS" value="Rock">Rock<br>      
+            <input type="radio" id="Paper" name="RPS" value="Paper">Paper<br>      
+            <input type="radio" id="Scissors" name="RPS" value="Scissors">Scissors<br>      
+            <br>      
+            <input type="submit" value="Submit!" onclick="return myfunction()" />   
+            <!-- <button type="button" onclick="reset()">Try Again!</button>     -->
+        </fieldset>      
+    </form>
+
+    <script>
+//the logic to detect which one won
+        function myfunction() {
+               var result
+            if((document.getElementById("Rock").checked && comp_choice=="Rock") || (document.getElementById("Paper").checked && comp_choice=="Paper") || (document.getElementById("Scissors").checked && comp_choice=="Scissors"))
+                result = "Tie! try again";
+            if (document.getElementById("Rock").checked && comp_choice=="Paper")
+                result = "You Lost!"
+            if (document.getElementById("Rock").checked && comp_choice=="Scissors")
+                result = "You Win!"
+            if (document.getElementById("Scissors").checked && comp_choice=="Paper")
+                result = "You Win!"
+            if (document.getElementById("Scissors").checked && comp_choice=="Rock")
+                result = "You Lost!"
+            if (document.getElementById("Paper").checked && comp_choice=="Rock")
+                result = "You Win!"
+            if (document.getElementById("Paper").checked && comp_choice=="Scissors")
+                result = "You Lost!"
+            return result
+    }
+
+    </script>
+    
+</body>
+</html>
